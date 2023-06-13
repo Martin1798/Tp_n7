@@ -42,10 +42,10 @@ bool ConfigurarHora(reloj_t reloj, const uint8_t * hora, uint32_t tamaño){
     } else {
         select = false;
     }
-    return reloj->valida && select;    
+    return select;    
 }
 //////////////////////////////////////////////////
-bool DarHora(reloj_t reloj, uint8_t * hora, uint32_t tamaño){
+bool DarHora(reloj_t reloj, uint8_t * hora, uint8_t tamaño){
     memcpy(hora, reloj->hora_actual, tamaño);
     return reloj->valida;    
 }

@@ -1,0 +1,22 @@
+---
+:source:
+  :path: test
+  :file: test_reloj_lib.c
+:successes:
+- :test: test_Prueba_DARHORA_Return_y_Mostrar_Hora
+  :line: 8
+  :message: ''
+  :unity_test_time: 0
+:failures:
+- :test: test_Configurar_hora
+  :line: 51
+  :message: Element 0 Expected 3 Was 2
+  :unity_test_time: 0
+:ignores: []
+:counts:
+  :total: 2
+  :passed: 1
+  :failed: 1
+  :ignored: 0
+:stdout: []
+:time: 0.008954869001172483

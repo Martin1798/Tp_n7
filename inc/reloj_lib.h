@@ -24,7 +24,7 @@ reloj_t CrearReloj(uint32_t Pulsos_segundo);
 bool ConfigurarHora(reloj_t reloj, const uint8_t * hora, uint32_t tamaño);
 
 
-bool DarHora(reloj_t reloj, uint8_t * hora, uint32_t tamaño);
+bool DarHora(reloj_t reloj, uint8_t * hora, uint8_t tamaño);
 
 
 void ActualizarHora(reloj_t reloj);
