@@ -1,6 +1,6 @@
 #include "reloj_lib.h"
 #include <string.h>
-#include <stdbool.h>
+
 
 struct reloj_s {
 
@@ -13,6 +13,9 @@ struct reloj_s {
     uint32_t Pulsos_seg;    
     uint32_t Pulsos_actual; 
 };
+//////////////////////////////////////////////////
+void Cada_Segundo(uint8_t * hora_actual, reloj_t reloj);
+bool validar_hora(const uint8_t * hora);
 //////////////////////////////////////////////////
 void ConfigurarPulsos(reloj_t reloj){
     reloj->Pulsos_actual= reloj->Pulsos_seg-1;
@@ -30,22 +33,83 @@ reloj_t CrearReloj(uint32_t Pulsos_segundo) {
     return self;
 }
 //////////////////////////////////////////////////
+bool ConfigurarHora(reloj_t reloj, const uint8_t * hora, uint32_t tamaño){
+    bool select = true;
 
+    if (!validar_hora(hora)) {
+        memcpy(reloj->hora_actual, hora, tamaño);
+        reloj->valida = true;
+    } else {
+        select = false;
+    }
+    return reloj->valida && select;    
+}
+//////////////////////////////////////////////////
+bool DarHora(reloj_t reloj, uint8_t * hora, uint32_t tamaño){
+    memcpy(hora, reloj->hora_actual, tamaño);
+    return reloj->valida;    
+}
+//////////////////////////////////////////////////
+void ActualizarHora(reloj_t reloj){
+    uint8_t hora[6];
 
+    if (reloj->Pulsos_actual == reloj->Pulsos_seg) {
+        DarHora(reloj, hora, 6);
+        Cada_Segundo(hora,reloj);
 
+        (void)ConfigurarHora(reloj, hora, 6);
+        reloj->Pulsos_actual = 0;
+        if (reloj->alarma_on) { 
+            AlarmaActivar(reloj);
+        }
+    }   
+}
+//////////////////////////////////////////////////
+bool FijarAlarma(reloj_t reloj, const uint8_t * hora, uint32_t tamaño){
+    memcpy(reloj->alarma, hora, tamaño);
+    reloj->alarma_on = true;
+    return reloj->alarma_on;
+}
+//////////////////////////////////////////////////
+bool ConsultarHoraAlarma(reloj_t reloj, uint8_t * hora, uint32_t tamaño){
+    memcpy(hora, reloj->alarma, tamaño);
+    return reloj->alarma_on;
+}
+//////////////////////////////////////////////////
+bool GestionAlarma(reloj_t reloj, bool estado){
+    reloj->alarma_on = estado;
+    return reloj->alarma_on;    
+}
+//////////////////////////////////////////////////
+bool EstadoActualAlarma(reloj_t reloj){
+        return reloj->alarma_on;
+}
+//////////////////////////////////////////////////
+bool PosponerAlarma(reloj_t reloj, uint8_t inactivo){
+    reloj->tiempo_pospuesto = inactivo;
+    return reloj->tiempo_pospuesto;    
+}
+//////////////////////////////////////////////////
+bool PosponerAlarmaDia(reloj_t reloj){
+    reloj->alarma_activada = false;
+    return reloj->alarma_activada;    
+}
+//////////////////////////////////////////////////
+bool AlarmaActivar(reloj_t reloj) {
+    uint8_t hora[6];
+    uint8_t alarma[6];
 
+    memcpy(hora, reloj->hora_actual, 6);
+    memcpy(alarma, reloj->alarma, 6);
 
+    if (hora[0] == alarma[0] && hora[1] == alarma[1] && hora[2] == alarma[2] && hora[3] == alarma[3] &&
+        hora[4] == alarma[4] && hora[5] == alarma[5]) {
+        reloj->alarma_activada = true;
+    }
 
-
-
-
-
-
-
-
-
-
-
+    return (reloj->alarma_activada && !reloj->tiempo_pospuesto);
+}
+//////////////////////////////////////////////////
 
 
 
@@ -95,33 +159,33 @@ reloj_t CrearReloj(uint32_t Pulsos_segundo) {
 
 
 //!Actializa la hora a cargar y descuenta el tiempo propuesto para la alarma
-void Cada_Segundo(reloj_t reloj) {
+void Cada_Segundo(uint8_t * hora_actual, reloj_t reloj) {
 
     reloj->hora_actual[5]++; // incrementa en 1 los segundos
                              
-    if (reloj->hora_actual[5]>9){
-        reloj->hora_actual[5]=0;
-        reloj->hora_actual[4]++;
+    if (hora_actual[5]>9){
+        hora_actual[5]=0;
+        hora_actual[4]++;
     }
-    if (reloj->hora_actual[4]>5){
-        reloj->hora_actual[4]=0;
+    if (hora_actual[4]>5){
+        hora_actual[4]=0;
         reloj->hora_actual[3]++;
     }
-    if (reloj->hora_actual[3]>9){
-        reloj->hora_actual[3]=0;
-        reloj->hora_actual[2]++;
+    if (hora_actual[3]>9){
+        hora_actual[3]=0;
+        hora_actual[2]++;
     }
-    if (reloj->hora_actual[2]>5){
-        reloj->hora_actual[2]=0;
-        reloj->hora_actual[1]++;
+    if (hora_actual[2]>5){
+        hora_actual[2]=0;
+        hora_actual[1]++;
     }
-    if (reloj->hora_actual[1]>9){
-        reloj->hora_actual[1]=0;
-        reloj->hora_actual[0]++;
+    if (hora_actual[1]>9){
+        hora_actual[1]=0;
+        hora_actual[0]++;
     }
-    if ((reloj->hora_actual[0]==2)&&(reloj->hora_actual[1]==4)){
-        reloj->hora_actual[0]=0;
-        reloj->hora_actual[1]=0;
+    if ((hora_actual[0]==2)&&(hora_actual[1]==4)){
+        hora_actual[0]=0;
+        hora_actual[1]=0;
     }
     if (reloj->tiempo_pospuesto > 0) {
         reloj->tiempo_pospuesto--;
