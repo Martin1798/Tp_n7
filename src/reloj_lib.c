@@ -55,9 +55,11 @@ void ActualizarHora(reloj_t reloj){
 
     if (reloj->Pulsos_actual == reloj->Pulsos_seg) {
         DarHora(reloj, hora, 6);
+        
         Cada_Segundo(hora,reloj);
 
-        (void)ConfigurarHora(reloj, hora, 6);
+        ConfigurarHora(reloj, hora, 6);
+
         reloj->Pulsos_actual = 0;
         if (reloj->alarma_on) { 
             AlarmaActivar(reloj);
@@ -111,53 +113,6 @@ bool AlarmaActivar(reloj_t reloj) {
 }
 //////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //!Actializa la hora a cargar y descuenta el tiempo propuesto para la alarma
 void Cada_Segundo(uint8_t * hora_actual, reloj_t reloj) {
 
@@ -197,6 +152,7 @@ bool validar_hora(const uint8_t * hora){
     bool retornar=false;
     if(hora[5]>9||hora[4]>5||hora[3]>9||hora[2]>5)retornar=true;
     if(hora[0]>1&&hora[1]>3)retornar=true;
+    if(hora[0]>2)retornar=true;
     return retornar;
 }
 //////////////////////////////////////////////////

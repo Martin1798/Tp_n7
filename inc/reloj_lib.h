@@ -2,7 +2,7 @@
 #include <stdbool.h>
 //////////////////////////////////////////////////
 //! cantidad de pulsos por segundos a utilizar
-#define PULSO_SEG 5
+#define PULSO_SEG 1000
 
 //! Veces por segundo que se llamará a la función para mantener la hora actualizada.
 #define REFRESCO 60
