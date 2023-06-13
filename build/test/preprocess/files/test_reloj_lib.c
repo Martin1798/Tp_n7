@@ -10,7 +10,7 @@
 
 void test_calcu(void){
 
-    UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((calc(1,1))), (
+    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((calc(1,1))), (
 
    ((void *)0)
 
