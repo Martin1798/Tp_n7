@@ -76,6 +76,7 @@ bool FijarAlarma(reloj_t reloj, const uint8_t * hora, uint8_t tamaño){
     if(hora[5]>9||hora[4]>5||hora[3]>9||hora[2]>5)retornar=true;
     if(hora[0]>1&&hora[1]>3)retornar=true;
     if(hora[0]>2)retornar=true;
+    if(hora[1]>9)retornar=true;
 
     if(!retornar){
         memcpy(reloj->alarma, hora, tamaño);
@@ -166,6 +167,7 @@ bool validar_hora(const uint8_t * hora){
     if(hora[5]>9||hora[4]>5||hora[3]>9||hora[2]>5)retornar=true;
     if(hora[0]>1&&hora[1]>3)retornar=true;
     if(hora[0]>2)retornar=true;
+    if(hora[1]>9)retornar=true;
     return retornar;
 }
 //////////////////////////////////////////////////

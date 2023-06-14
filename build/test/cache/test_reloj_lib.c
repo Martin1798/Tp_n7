@@ -314,7 +314,7 @@ void test_Poner_alarma(void) {
 
 
 
-    static const uint8_t Valor_alarma[] = {0, 2, 3, 4, 1, 2};
+    static const uint8_t Valor_alarma[] = {1, 1, 3, 4, 1, 1};
 
     uint8_t hora[6];
 
