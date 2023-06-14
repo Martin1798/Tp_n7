@@ -4,35 +4,35 @@
   :file: test_reloj_lib.c
 :successes:
 - :test: test_Prueba_DARHORA_Return_y_Mostrar_Hora
-  :line: 8
+  :line: 41
   :message: ''
   :unity_test_time: 0
 - :test: test_Configurar_hora
-  :line: 23
-  :message: ''
-  :unity_test_time: 0
-- :test: test_incremento_reloj
   :line: 56
   :message: ''
   :unity_test_time: 0
+- :test: test_incremento_reloj
+  :line: 89
+  :message: ''
+  :unity_test_time: 0
 - :test: test_Poner_alarma
-  :line: 134
+  :line: 167
   :message: ''
   :unity_test_time: 0
 - :test: test_sonar_alarma
-  :line: 151
+  :line: 184
   :message: ''
   :unity_test_time: 0
 - :test: test_no_sonar_alarma
-  :line: 175
+  :line: 208
   :message: ''
   :unity_test_time: 0
 - :test: test_posponer_alarma
-  :line: 199
+  :line: 232
   :message: ''
   :unity_test_time: 0
 - :test: test_saltar_dia
-  :line: 230
+  :line: 263
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -43,4 +43,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.5646876309983782
+:time: 0.4050781129990355

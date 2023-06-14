@@ -8,8 +8,6 @@
 
 
 
-
-
 void test_Prueba_DARHORA_Return_y_Mostrar_Hora(void) {
 
 
@@ -28,7 +26,7 @@ void test_Prueba_DARHORA_Return_y_Mostrar_Hora(void) {
 
 
 
-    do {if (!(DarHora(reloj, hora, 6))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(17)));}} while(0);
+    do {if (!(DarHora(reloj, hora, 6))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(50)));}} while(0);
 
 
 
@@ -36,7 +34,7 @@ void test_Prueba_DARHORA_Return_y_Mostrar_Hora(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(19), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(52), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 }
 
@@ -66,11 +64,11 @@ void test_Configurar_hora(void) {
 
 
 
-    do {if ((ConfigurarHora(reloj,Valor_de_carga, 6))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(34)));}} while(0);
+    do {if ((ConfigurarHora(reloj,Valor_de_carga, 6))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(67)));}} while(0);
 
 
 
-    do {if ((DarHora(reloj, hora, 6))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(36)));}} while(0);
+    do {if ((DarHora(reloj, hora, 6))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(69)));}} while(0);
 
 
 
@@ -78,7 +76,7 @@ void test_Configurar_hora(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(38), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(71), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -94,11 +92,11 @@ void test_Configurar_hora(void) {
 
 
 
-    do {if (!(ConfigurarHora(reloj,Valor_de_carga, 6))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(46)));}} while(0);
+    do {if (!(ConfigurarHora(reloj,Valor_de_carga, 6))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(79)));}} while(0);
 
 
 
-    do {if ((DarHora(reloj, hora, 6))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(48)));}} while(0);
+    do {if ((DarHora(reloj, hora, 6))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(81)));}} while(0);
 
 
 
@@ -108,7 +106,7 @@ void test_Configurar_hora(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(51), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(84), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -168,7 +166,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(79), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(112), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -186,7 +184,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(86), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(119), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -204,7 +202,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(93), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(126), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -224,7 +222,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(101), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(134), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -240,7 +238,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(107), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(140), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -258,7 +256,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(114), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(147), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -274,7 +272,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(120), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(153), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -294,7 +292,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(128), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(161), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -322,11 +320,11 @@ void test_Poner_alarma(void) {
 
 
 
-    do {if (!(FijarAlarma(reloj, Valor_alarma, 6))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(142)));}} while(0);
+    do {if (!(FijarAlarma(reloj, Valor_alarma, 6))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(175)));}} while(0);
 
 
 
-    do {if ((ConsultarHoraAlarma(reloj, hora, 6))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(144)));}} while(0);
+    do {if ((ConsultarHoraAlarma(reloj, hora, 6))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(177)));}} while(0);
 
 
 
@@ -334,7 +332,7 @@ void test_Poner_alarma(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(146), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(179), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 }
 
@@ -382,7 +380,7 @@ void test_sonar_alarma(void) {
 
     ActualizarHora(reloj);
 
-    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(170)));}} while(0);
+    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(203)));}} while(0);
 
 }
 
@@ -438,11 +436,11 @@ void test_no_sonar_alarma(void) {
 
    0
 
-   ))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(194)));}} while(0);
+   ))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(227)));}} while(0);
 
 
 
-    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(196)));}} while(0);
+    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(229)));}} while(0);
 
 }
 
@@ -476,15 +474,17 @@ void test_posponer_alarma(void) {
 
     ActualizarHora(reloj);
 
-    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(213)));}} while(0);
+    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(246)));}} while(0);
 
-    do {if ((PosponerAlarma(reloj, 5))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(214)));}} while(0);
+    do {if ((PosponerAlarma(reloj, 5))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(247)));}} while(0);
 
-    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(215)));}} while(0);
-
-
+    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(248)));}} while(0);
 
 
+
+
+
+    ActualizarHora(reloj);
 
     ActualizarHora(reloj);
 
@@ -492,17 +492,15 @@ void test_posponer_alarma(void) {
 
     ActualizarHora(reloj);
 
+
+
+    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(256)));}} while(0);
+
+
+
     ActualizarHora(reloj);
 
-
-
-    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(223)));}} while(0);
-
-
-
-    ActualizarHora(reloj);
-
-    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(226)));}} while(0);
+    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(259)));}} while(0);
 
 }
 
@@ -536,11 +534,11 @@ void test_saltar_dia(void) {
 
     ActualizarHora(reloj);
 
-    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(243)));}} while(0);
+    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(276)));}} while(0);
 
 
 
-    do {if (!(PosponerAlarmaDia(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(245)));}} while(0);
+    do {if (!(PosponerAlarmaDia(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(278)));}} while(0);
 
 
 
@@ -550,7 +548,7 @@ void test_saltar_dia(void) {
 
     ActualizarHora(reloj);
 
-    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(250)));}} while(0);
+    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(283)));}} while(0);
 
 
 
@@ -574,8 +572,8 @@ void test_saltar_dia(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(260), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(293), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
-    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(261)));}} while(0);
+    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(294)));}} while(0);
 
 }

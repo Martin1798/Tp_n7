@@ -88,14 +88,14 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_reloj_lib.c");
-  run_test(test_Prueba_DARHORA_Return_y_Mostrar_Hora, "test_Prueba_DARHORA_Return_y_Mostrar_Hora", 8);
-  run_test(test_Configurar_hora, "test_Configurar_hora", 23);
-  run_test(test_incremento_reloj, "test_incremento_reloj", 56);
-  run_test(test_Poner_alarma, "test_Poner_alarma", 134);
-  run_test(test_sonar_alarma, "test_sonar_alarma", 151);
-  run_test(test_no_sonar_alarma, "test_no_sonar_alarma", 175);
-  run_test(test_posponer_alarma, "test_posponer_alarma", 199);
-  run_test(test_saltar_dia, "test_saltar_dia", 230);
+  run_test(test_Prueba_DARHORA_Return_y_Mostrar_Hora, "test_Prueba_DARHORA_Return_y_Mostrar_Hora", 41);
+  run_test(test_Configurar_hora, "test_Configurar_hora", 56);
+  run_test(test_incremento_reloj, "test_incremento_reloj", 89);
+  run_test(test_Poner_alarma, "test_Poner_alarma", 167);
+  run_test(test_sonar_alarma, "test_sonar_alarma", 184);
+  run_test(test_no_sonar_alarma, "test_no_sonar_alarma", 208);
+  run_test(test_posponer_alarma, "test_posponer_alarma", 232);
+  run_test(test_saltar_dia, "test_saltar_dia", 263);
 
   return UnityEnd();
 }
