@@ -117,12 +117,11 @@ bool AlarmaActivar(reloj_t reloj) {
     memcpy(hora, reloj->hora_actual, 6);
     memcpy(alarma, reloj->alarma, 6);
 
-    if (hora[0] == alarma[0] && hora[1] == alarma[1] && hora[2] == alarma[2] && hora[3] == alarma[3] &&
-        hora[4] == alarma[4] && hora[5] == alarma[5]) {
+    if (!memcmp(hora, alarma, 6)){
         reloj->alarma_activada = true;
     }
 
-    return (reloj->alarma_activada && !reloj->tiempo_pospuesto);
+    return ((reloj->alarma_activada) && (!reloj->tiempo_pospuesto)&&(reloj->alarma_on));
 }
 //////////////////////////////////////////////////
 

@@ -146,3 +146,53 @@ void test_Poner_alarma(void) {
     TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_alarma, hora, 6); 
 }
 
+
+// Hacer que el reloj suene
+void test_sonar_alarma(void) {
+
+    //Creo un Reloj y pulso 1 segundo
+    reloj_t reloj = CrearReloj(1);
+
+    static const uint8_t hora[] = {0, 0, 0, 0, 0, 0};
+    uint8_t alarma[6] = {0, 0, 0, 0, 0, 1}; // a 1 seg de cambiar la hora
+
+    //Pone en hora
+    ConfigurarHora(reloj, hora, 6); 
+
+    //Pone alarma en hora    
+    FijarAlarma(reloj, alarma, 6); 
+
+    //Pone los pulsos en cero
+    ConfigurarPulsos(reloj); 
+
+    // actualiza la hora del reloj
+    ActualizarHora(reloj); 
+    TEST_ASSERT_TRUE(AlarmaActivar(reloj));
+}
+
+
+//lo mismo de antes pero ahora la alarma no suena
+void test_no_sonar_alarma(void) {
+
+    //Creo un Reloj y pulso 1 segundo
+    reloj_t reloj = CrearReloj(1);
+
+    static const uint8_t hora[] = {0, 0, 0, 0, 0, 0};
+    uint8_t alarma[6] = {0, 0, 0, 0, 0, 1}; // a 1 seg de cambiar la hora
+
+    //apagar sonido de la alarma
+    ConfigurarHora(reloj, hora, 6); 
+
+    FijarAlarma(reloj, alarma, 6); 
+
+    ConfigurarPulsos(reloj); 
+
+    ActualizarHora(reloj);
+
+    //la alarma no debe sonar, aqui la apago
+    GestionAlarma(reloj, false);
+    TEST_ASSERT_FALSE(GestionAlarma(reloj, false));
+
+    TEST_ASSERT_FALSE(AlarmaActivar(reloj));
+}
+

@@ -19,12 +19,20 @@
   :line: 134
   :message: ''
   :unity_test_time: 0
+- :test: test_sonar_alarma
+  :line: 151
+  :message: ''
+  :unity_test_time: 0
+- :test: test_no_sonar_alarma
+  :line: 175
+  :message: ''
+  :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 4
-  :passed: 4
+  :total: 6
+  :passed: 6
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.6694802220008569
+:time: 0.47779419400467305

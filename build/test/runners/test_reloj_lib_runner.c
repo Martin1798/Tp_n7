@@ -14,6 +14,8 @@ extern void test_Prueba_DARHORA_Return_y_Mostrar_Hora(void);
 extern void test_Configurar_hora(void);
 extern void test_incremento_reloj(void);
 extern void test_Poner_alarma(void);
+extern void test_sonar_alarma(void);
+extern void test_no_sonar_alarma(void);
 
 
 /*=======Mock Management=====*/
@@ -88,6 +90,8 @@ int main(void)
   run_test(test_Configurar_hora, "test_Configurar_hora", 23);
   run_test(test_incremento_reloj, "test_incremento_reloj", 56);
   run_test(test_Poner_alarma, "test_Poner_alarma", 134);
+  run_test(test_sonar_alarma, "test_sonar_alarma", 151);
+  run_test(test_no_sonar_alarma, "test_no_sonar_alarma", 175);
 
   return UnityEnd();
 }

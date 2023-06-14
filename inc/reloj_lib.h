@@ -47,4 +47,5 @@ bool PosponerAlarma(reloj_t reloj, uint8_t inactivo);
 
 bool AlarmaActivar(reloj_t reloj);
 
+
 bool PosponerAlarmaDia(reloj_t reloj);
