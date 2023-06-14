@@ -17,6 +17,7 @@ extern void test_Poner_alarma(void);
 extern void test_sonar_alarma(void);
 extern void test_no_sonar_alarma(void);
 extern void test_posponer_alarma(void);
+extern void test_saltar_dia(void);
 
 
 /*=======Mock Management=====*/
@@ -94,6 +95,7 @@ int main(void)
   run_test(test_sonar_alarma, "test_sonar_alarma", 151);
   run_test(test_no_sonar_alarma, "test_no_sonar_alarma", 175);
   run_test(test_posponer_alarma, "test_posponer_alarma", 199);
+  run_test(test_saltar_dia, "test_saltar_dia", 230);
 
   return UnityEnd();
 }

@@ -225,3 +225,38 @@ void test_posponer_alarma(void) {
     ActualizarHora(reloj); // actualiza la hora del reloj
     TEST_ASSERT_TRUE(AlarmaActivar(reloj));
 }
+
+
+void test_saltar_dia(void) {
+    //Creo un Reloj y pulso 1 segundo
+    reloj_t reloj = CrearReloj(1);
+
+    static uint8_t hora[] = {0, 0, 0, 0, 0, 0};
+    uint8_t alarma[6] = {0, 0, 0, 0, 0, 1}; // a 1 seg de cambiar la hora
+ 
+    ConfigurarHora(reloj, hora, 6);      // estabelce la hora
+    FijarAlarma(reloj, alarma, 6); // establece la alarma
+ 
+
+
+    ActualizarHora(reloj);                    
+    TEST_ASSERT_TRUE(AlarmaActivar(reloj)); 
+    // pospone la alarma  
+    TEST_ASSERT_FALSE(PosponerAlarmaDia(reloj)); 
+
+    ConfigurarPulsos(reloj);
+
+    ActualizarHora(reloj);                   
+    TEST_ASSERT_FALSE(AlarmaActivar(reloj)); 
+
+    //simula el paso de un dia
+    ConfigurarHora(reloj, hora, 6);      
+
+    ConfigurarPulsos(reloj);
+
+    ActualizarHora(reloj); 
+
+    DarHora(reloj, hora, 6);                     
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(alarma, hora, 6); 
+    TEST_ASSERT_TRUE(AlarmaActivar(reloj));           
+}
