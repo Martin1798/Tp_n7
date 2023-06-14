@@ -141,7 +141,7 @@ void Cada_Segundo(uint8_t * hora_actual, reloj_t reloj) {
         hora_actual[1]=0;
         hora_actual[0]++;
     }
-    if ((hora_actual[0]==2)&&(hora_actual[1]==4)){
+    if ((hora_actual[0]>=2)&&(hora_actual[1]>=4)){
         hora_actual[0]=0;
         hora_actual[1]=0;
     }

@@ -142,6 +142,8 @@ void test_incremento_reloj(void) {
 
     static uint8_t Valor_de_esperado5[] = {0, 9, 0, 0, 0, 0};
 
+    static uint8_t Valor_de_esperado6[] = {2, 3, 0, 0, 0, 0};
+
 
 
 
@@ -166,7 +168,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(78), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(79), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -184,7 +186,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(85), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(86), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -202,7 +204,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(92), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(93), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -222,7 +224,7 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(100), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(101), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -238,11 +240,61 @@ void test_incremento_reloj(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(106), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(107), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
 
+
+    for (int i = 0; i < 28800000; i++) {
+
+        ActualizarHora(reloj);
+
+    }
+
+    DarHora(reloj, hora, 6);
+
+    UnityAssertEqualIntArray(( const void*)((Valor_de_esperado5)), ( const void*)((hora)), (UNITY_UINT32)((6)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(114), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+
+
+
+    for (int i = 0; i < (14*3600000); i++) {
+
+        ActualizarHora(reloj);
+
+    }
+
+    DarHora(reloj, hora, 6);
+
+    UnityAssertEqualIntArray(( const void*)((Valor_de_esperado6)), ( const void*)((hora)), (UNITY_UINT32)((6)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(120), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+
+
+
+    Valor_de_esperado[5]=0;
+
+
+
+    for (int i = 0; i < (3600000); i++) {
+
+        ActualizarHora(reloj);
+
+    }
+
+    DarHora(reloj, hora, 6);
+
+    UnityAssertEqualIntArray(( const void*)((Valor_de_esperado)), ( const void*)((hora)), (UNITY_UINT32)((6)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(128), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 

@@ -65,6 +65,7 @@ void test_incremento_reloj(void) {
     static  uint8_t Valor_de_esperado3[] = {0, 0, 5, 9, 0, 0};
     static  uint8_t Valor_de_esperado4[] = {0, 1, 0, 0, 0, 0};
     static  uint8_t Valor_de_esperado5[] = {0, 9, 0, 0, 0, 0};
+    static  uint8_t Valor_de_esperado6[] = {2, 3, 0, 0, 0, 0};
 
     //Aqui se guardara la hora del reloj cuando se la pida
     uint8_t hora[6];
@@ -106,8 +107,25 @@ void test_incremento_reloj(void) {
     TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_esperado4, hora, 6);
 
 
+    for (int i = 0; i < 28800000; i++) {
+        ActualizarHora(reloj);  // llegamos a las 9 horas
+    }
+    DarHora(reloj, hora, 6);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_esperado5, hora, 6);
 
-    
+    for (int i = 0; i < (14*3600000); i++) {
+        ActualizarHora(reloj);  // llegamos a las 23 horas
+    }
+    DarHora(reloj, hora, 6);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_esperado6, hora, 6);
+
+    Valor_de_esperado[5]=0;
+
+    for (int i = 0; i < (3600000); i++) {
+        ActualizarHora(reloj);  // debe reiniciar
+    }
+    DarHora(reloj, hora, 6);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_esperado, hora, 6);
 
 }
 
