@@ -50,7 +50,64 @@ void test_Configurar_hora(void) {
     Valor_de_carga[0]=2;
     TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_carga, hora, 6); 
 
+}
 
+// Después de n ciclos de reloj la hora avanza un segundo
+void test_incremento_reloj(void) {
+
+    //Creo un Reloj un argumento 1000 implica que cada 1000 pulsos tengo un segundo
+    reloj_t reloj = CrearReloj(1000);
+
+    //Se supone que el reloj deberia estar con el siguiente valor despues de incrementarlo
+    static  uint8_t Valor_de_esperado [] = {0, 0, 0, 0, 0, 1};
+    static  uint8_t Valor_de_esperado1[] = {0, 0, 0, 0, 5, 9};
+    static  uint8_t Valor_de_esperado2[] = {0, 0, 0, 1, 0, 0};
+    static  uint8_t Valor_de_esperado3[] = {0, 0, 5, 9, 0, 0};
+    static  uint8_t Valor_de_esperado4[] = {0, 1, 0, 0, 0, 0};
+    static  uint8_t Valor_de_esperado5[] = {0, 9, 0, 0, 0, 0};
+
+    //Aqui se guardara la hora del reloj cuando se la pida
+    uint8_t hora[6];
+    //Configura los pulsos actuales del reloj en cero
+    ConfigurarPulsos(reloj); 
+    //Esta funcion es la encargada de aumentar los segundos cuando las condiciones se cumplan
+    for (int i = 0; i < 1000; i++) {
+        ActualizarHora(reloj);  //faltan 58 para los 59
+    }
+    DarHora(reloj,hora,6);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_esperado, hora, 6);
+
+
+    for (int i = 0; i < 58000; i++) {
+        ActualizarHora(reloj);  //faltan 58 para los 59
+    }
+    DarHora(reloj,hora,6);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_esperado1, hora, 6);
+
+
+    for (int i = 0; i < 1000; i++) {
+        ActualizarHora(reloj);  //un segundo mas para el primer minuto
+    }
+    DarHora(reloj,hora,6);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_esperado2, hora, 6);
+
+
+
+    for (int i = 0; i < 3480000; i++) {
+        ActualizarHora(reloj);  //faltan 3480 segundos para los 59 minutos
+    }
+    DarHora(reloj,hora,6);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_esperado3, hora, 6);
+
+    for (int i = 0; i < 60000; i++) {
+        ActualizarHora(reloj);  //faltan 60 segundos para la primera hora
+    }
+    DarHora(reloj,hora,6);
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_de_esperado4, hora, 6);
+
+
+
+    
 
 }
 

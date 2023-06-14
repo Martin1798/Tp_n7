@@ -12,6 +12,7 @@ extern void setUp(void);
 extern void tearDown(void);
 extern void test_Prueba_DARHORA_Return_y_Mostrar_Hora(void);
 extern void test_Configurar_hora(void);
+extern void test_incremento_reloj(void);
 
 
 /*=======Mock Management=====*/
@@ -84,6 +85,7 @@ int main(void)
   UnityBegin("test_reloj_lib.c");
   run_test(test_Prueba_DARHORA_Return_y_Mostrar_Hora, "test_Prueba_DARHORA_Return_y_Mostrar_Hora", 8);
   run_test(test_Configurar_hora, "test_Configurar_hora", 23);
+  run_test(test_incremento_reloj, "test_incremento_reloj", 56);
 
   return UnityEnd();
 }

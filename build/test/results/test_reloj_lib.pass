@@ -7,16 +7,20 @@
   :line: 8
   :message: ''
   :unity_test_time: 0
-:failures:
 - :test: test_Configurar_hora
-  :line: 51
-  :message: Element 0 Expected 3 Was 2
+  :line: 23
+  :message: ''
   :unity_test_time: 0
+- :test: test_incremento_reloj
+  :line: 56
+  :message: ''
+  :unity_test_time: 0
+:failures: []
 :ignores: []
 :counts:
-  :total: 2
-  :passed: 1
-  :failed: 1
+  :total: 3
+  :passed: 3
+  :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.008954869001172483
+:time: 0.02960060600162251

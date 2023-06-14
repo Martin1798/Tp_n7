@@ -18,7 +18,7 @@ void Cada_Segundo(uint8_t * hora_actual, reloj_t reloj);
 bool validar_hora(const uint8_t * hora);
 //////////////////////////////////////////////////
 void ConfigurarPulsos(reloj_t reloj){
-    reloj->Pulsos_actual= reloj->Pulsos_seg-1;
+    reloj->Pulsos_actual= 0;
 }
 //////////////////////////////////////////////////
 void AumentarPulsos(reloj_t reloj){ 
@@ -53,6 +53,8 @@ bool DarHora(reloj_t reloj, uint8_t * hora, uint8_t tamaño){
 void ActualizarHora(reloj_t reloj){
     uint8_t hora[6];
 
+    reloj->Pulsos_actual++;
+
     if (reloj->Pulsos_actual == reloj->Pulsos_seg) {
         DarHora(reloj, hora, 6);
         
@@ -61,6 +63,7 @@ void ActualizarHora(reloj_t reloj){
         ConfigurarHora(reloj, hora, 6);
 
         reloj->Pulsos_actual = 0;
+
         if (reloj->alarma_on) { 
             AlarmaActivar(reloj);
         }
@@ -116,7 +119,7 @@ bool AlarmaActivar(reloj_t reloj) {
 //!Actializa la hora a cargar y descuenta el tiempo propuesto para la alarma
 void Cada_Segundo(uint8_t * hora_actual, reloj_t reloj) {
 
-    reloj->hora_actual[5]++; // incrementa en 1 los segundos
+    hora_actual[5]++; // incrementa en 1 los segundos
                              
     if (hora_actual[5]>9){
         hora_actual[5]=0;
@@ -124,7 +127,7 @@ void Cada_Segundo(uint8_t * hora_actual, reloj_t reloj) {
     }
     if (hora_actual[4]>5){
         hora_actual[4]=0;
-        reloj->hora_actual[3]++;
+        hora_actual[3]++;
     }
     if (hora_actual[3]>9){
         hora_actual[3]=0;
@@ -145,6 +148,7 @@ void Cada_Segundo(uint8_t * hora_actual, reloj_t reloj) {
     if (reloj->tiempo_pospuesto > 0) {
         reloj->tiempo_pospuesto--;
     }
+    
 }
 //////////////////////////////////////////////////
 //! Si la hora a almacenar es valida retorna false
