@@ -196,3 +196,32 @@ void test_no_sonar_alarma(void) {
     TEST_ASSERT_FALSE(AlarmaActivar(reloj));
 }
 
+void test_posponer_alarma(void) {
+    //Creo un Reloj y pulso 1 segundo
+    reloj_t reloj = CrearReloj(1);
+
+    static const uint8_t hora[] = {0, 0, 0, 0, 0, 0};
+    uint8_t alarma[6] = {0, 0, 0, 0, 0, 1}; // a 1 seg de cambiar la hora
+ 
+    ConfigurarHora(reloj, hora, 6);      // estabelce la hora
+    FijarAlarma(reloj, alarma, 6); // establece la alarma
+
+    ConfigurarPulsos(reloj); 
+
+
+    ActualizarHora(reloj); // actualiza la hora del reloj
+    TEST_ASSERT_TRUE(AlarmaActivar(reloj));
+    TEST_ASSERT_TRUE(PosponerAlarma(reloj, POSPONER_MINUTOS));
+    TEST_ASSERT_FALSE(AlarmaActivar(reloj));
+
+    //Actualizado 4 veves y no debe pasar nada a las vez 5 si debe activar
+    ActualizarHora(reloj); // actualiza la hora del reloj
+    ActualizarHora(reloj); // actualiza la hora del reloj
+    ActualizarHora(reloj); // actualiza la hora del reloj
+    ActualizarHora(reloj); // actualiza la hora del reloj
+
+    TEST_ASSERT_FALSE(AlarmaActivar(reloj));
+
+    ActualizarHora(reloj); // actualiza la hora del reloj
+    TEST_ASSERT_TRUE(AlarmaActivar(reloj));
+}

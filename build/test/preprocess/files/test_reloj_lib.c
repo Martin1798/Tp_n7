@@ -426,6 +426,8 @@ void test_no_sonar_alarma(void) {
 
 
 
+
+
     GestionAlarma(reloj, 
 
                         0
@@ -436,10 +438,70 @@ void test_no_sonar_alarma(void) {
 
    0
 
-   ))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(193)));}} while(0);
+   ))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(194)));}} while(0);
 
 
 
-    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(195)));}} while(0);
+    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(196)));}} while(0);
+
+}
+
+
+
+void test_posponer_alarma(void) {
+
+
+
+    reloj_t reloj = CrearReloj(1);
+
+
+
+    static const uint8_t hora[] = {0, 0, 0, 0, 0, 0};
+
+    uint8_t alarma[6] = {0, 0, 0, 0, 0, 1};
+
+
+
+    ConfigurarHora(reloj, hora, 6);
+
+    FijarAlarma(reloj, alarma, 6);
+
+
+
+    ConfigurarPulsos(reloj);
+
+
+
+
+
+    ActualizarHora(reloj);
+
+    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(213)));}} while(0);
+
+    do {if ((PosponerAlarma(reloj, 5))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(214)));}} while(0);
+
+    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(215)));}} while(0);
+
+
+
+
+
+    ActualizarHora(reloj);
+
+    ActualizarHora(reloj);
+
+    ActualizarHora(reloj);
+
+    ActualizarHora(reloj);
+
+
+
+    do {if (!(AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(223)));}} while(0);
+
+
+
+    ActualizarHora(reloj);
+
+    do {if ((AlarmaActivar(reloj))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(226)));}} while(0);
 
 }
