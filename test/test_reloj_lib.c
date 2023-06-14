@@ -131,3 +131,18 @@ void test_incremento_reloj(void) {
 
 
 
+void test_Poner_alarma(void) {
+    //Creo un Reloj
+    reloj_t reloj = CrearReloj(PULSO_SEG);
+
+    static const uint8_t Valor_alarma[] = {0, 2, 3, 4, 1, 2};
+    uint8_t hora[6];
+
+    // comprueba que la hora que pasamos es valida
+    TEST_ASSERT_FALSE(FijarAlarma(reloj, Valor_alarma, 6));
+    // comprueba que la hora que debuelve es valida 
+    TEST_ASSERT_TRUE(ConsultarHoraAlarma(reloj, hora, 6));
+    // Vemos si la alarma cargada es la misma que ingresamos     
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(Valor_alarma, hora, 6); 
+}
+

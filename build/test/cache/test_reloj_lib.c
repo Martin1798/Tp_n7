@@ -298,8 +298,42 @@ void test_incremento_reloj(void) {
 
 
 
+}
 
 
 
+
+
+
+
+void test_Poner_alarma(void) {
+
+
+
+    reloj_t reloj = CrearReloj(1000);
+
+
+
+    static const uint8_t Valor_alarma[] = {0, 2, 3, 4, 1, 2};
+
+    uint8_t hora[6];
+
+
+
+
+
+    do {if (!(FijarAlarma(reloj, Valor_alarma, 6))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(142)));}} while(0);
+
+
+
+    do {if ((ConsultarHoraAlarma(reloj, hora, 6))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(144)));}} while(0);
+
+
+
+    UnityAssertEqualIntArray(( const void*)((Valor_alarma)), ( const void*)((hora)), (UNITY_UINT32)((6)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(146), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 }

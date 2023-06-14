@@ -70,10 +70,19 @@ void ActualizarHora(reloj_t reloj){
     }   
 }
 //////////////////////////////////////////////////
-bool FijarAlarma(reloj_t reloj, const uint8_t * hora, uint32_t tamaño){
-    memcpy(reloj->alarma, hora, tamaño);
-    reloj->alarma_on = true;
-    return reloj->alarma_on;
+bool FijarAlarma(reloj_t reloj, const uint8_t * hora, uint8_t tamaño){
+
+    bool retornar=false;
+    if(hora[5]>9||hora[4]>5||hora[3]>9||hora[2]>5)retornar=true;
+    if(hora[0]>1&&hora[1]>3)retornar=true;
+    if(hora[0]>2)retornar=true;
+
+    if(!retornar){
+        memcpy(reloj->alarma, hora, tamaño);
+        reloj->alarma_on = true;
+    }
+
+    return retornar;//si retornar es false se cargo la alarma correctamente
 }
 //////////////////////////////////////////////////
 bool ConsultarHoraAlarma(reloj_t reloj, uint8_t * hora, uint32_t tamaño){

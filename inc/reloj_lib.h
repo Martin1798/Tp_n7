@@ -30,7 +30,7 @@ bool DarHora(reloj_t reloj, uint8_t * hora, uint8_t tamaño);
 void ActualizarHora(reloj_t reloj);
 
 
-bool FijarAlarma(reloj_t reloj, const uint8_t * hora, uint32_t tamaño);
+bool FijarAlarma(reloj_t reloj, const uint8_t * hora, uint8_t tamaño);
 
 
 bool ConsultarHoraAlarma(reloj_t reloj, uint8_t * hora, uint32_t tamaño);
